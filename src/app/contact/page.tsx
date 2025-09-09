@@ -8,7 +8,7 @@ export default function ContactPage() {
                     Contact Us
                 </h1>
                 <p className="mt-4 text-lg sm:text-xl text-muted-foreground">
-                    Have questions or feedback? We'd love to hear from you.
+                    Have questions or feedback? We&apos;d love to hear from you.
                 </p>
             </div>
             <ContactForm />

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useCallback, createContext, useContext, ReactNode } from 'react';
@@ -15,7 +14,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   login: (email: string, password_DO_NOT_USE_IN_PROD: string) => Promise<{ success: boolean; message?: string }>;
-  register: (newUser: { name: string, college: string, email: string, password: any }) => Promise<{ success: boolean; message?: string }>;
+  register: (newUser: { name: string, college: string, email: string, password: string }) => Promise<{ success: boolean; message?: string }>;
   logout: () => void;
 }
 
@@ -62,10 +61,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { success: false, message: result.message };
   }, []);
 
-  const register = useCallback(async (newUser: { name: string, college: string, email: string, password: any }): Promise<{ success: boolean; message?: string }> => {
-    const result = await registerUserAction(newUser);
-    return { success: result.success, message: result.message };
-  }, []);
+  const register = useCallback(
+    async (
+      newUser: { name: string; college: string; email: string; password: string }
+    ): Promise<{ success: boolean; message?: string }> => {
+      const result = await registerUserAction(newUser);
+      return { success: result.success, message: result.message };
+    },
+    []
+  );
 
   const logout = useCallback(() => {
     if (typeof window !== 'undefined') {

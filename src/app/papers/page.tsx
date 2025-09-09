@@ -192,7 +192,8 @@ export default function PapersPage() {
                         </CardHeader>
                         <CardContent className="space-y-3">
                             {years.map((year) => {
-                                const url = (paperLinks as any)[year]?.[stream.code] || "#";
+                                const url =
+  (paperLinks as Record<number, Record<string, string>>)[year]?.[stream.code] || "#";
                                 const isEnabled = url !== "#";
                                 return (
                                     <Button asChild variant="outline" className="w-full justify-between" key={year} disabled={!isEnabled}>
