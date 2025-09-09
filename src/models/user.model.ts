@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema, models } from 'mongoose';
+import mongoose, { Document, Schema, models, Model } from 'mongoose';
 
 export interface IUser extends Document {
   name: string;
@@ -26,4 +26,6 @@ UserSchema.pre('save', async function(next) {
     next();
 });
 
-export default models.User || mongoose.model<IUser>('User', UserSchema);
+const User: Model<IUser> = models.User || mongoose.model<IUser>('User', UserSchema);
+
+export default User;
