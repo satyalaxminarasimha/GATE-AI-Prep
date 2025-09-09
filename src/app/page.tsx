@@ -1,4 +1,3 @@
-
 "use client";
 
 import GateAiPrep from "@/components/gate-ai-prep";
