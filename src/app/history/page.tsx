@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Accordion } from "@/components/ui/accordion";
@@ -6,9 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useQuizHistory, type QuizHistoryItem } from "@/hooks/use-quiz-history";
 import { History as HistoryIcon, Calendar, CheckCircle, Percent, Loader2 } from "lucide-react";
 import { ResultItem } from "@/components/gate-ai-prep";
-import { useAuth } from "@/hooks/use-auth.tsx";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function HistoryPage() {
     const { user, loading: authLoading } = useAuth();
